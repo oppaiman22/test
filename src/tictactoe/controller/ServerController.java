@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import tictactoe.model.ClientPlayPacket;
 import tictactoe.model.Connection;
 import tictactoe.model.GameEndPacket;
-import tictactoe.model.Server;
+//import tictactoe.model.Server;
 import tictactoe.model.UpdatePacket;
 
 /**
@@ -28,13 +28,13 @@ public class ServerController extends GameController {
     private Connection connection;
     
     public ServerController() {
-        super(1);
+        super(1);//assign wich player is playing
         try {
             serverSocket = new ServerSocket(PORT);
             socket = serverSocket.accept();
             connection = new Connection(this, socket);
         } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
         
@@ -52,7 +52,7 @@ public class ServerController extends GameController {
         try {
             serverSocket.close();
         } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -67,14 +67,17 @@ public class ServerController extends GameController {
     private void updateField(int x, int y) {
         if(fields[x][y] == NOBODY) {
             fields[x][y] = currentPlayer;
+            
             if(currentPlayer == PLAYER_ONE) {
                 currentPlayer = PLAYER_TWO;
             } else if(currentPlayer == PLAYER_TWO) {
                 currentPlayer = PLAYER_ONE;
             }
+            
             connection.sendPacket(new UpdatePacket(fields, currentPlayer));
             gamePanel.repaint();
             int winner = checkWin();
+            
             if(winner != NOBODY) {
                 endGame(winner);
             } else {

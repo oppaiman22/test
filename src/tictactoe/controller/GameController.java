@@ -38,10 +38,6 @@ public abstract class GameController {
         currentPlayer = PLAYER_ONE;
     }
     
-    public void tes(){
-        System.out.println("!@#$%");
-    }
-    
     public int[][] getFields() {
         return fields;
     }

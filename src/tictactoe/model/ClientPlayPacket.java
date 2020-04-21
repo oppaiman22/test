@@ -12,20 +12,20 @@ import java.io.Serializable;
  * @author fajar
  */
 public class ClientPlayPacket implements Serializable {
-    private int x;
-    private int y;
+    private int coordinateX;
+    private int coordinateY;
 
-    public ClientPlayPacket(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public ClientPlayPacket(int inputCoordinateX, int inputCoordinateY) {
+        this.coordinateX = inputCoordinateX;
+        this.coordinateY = inputCoordinateY;
     }
 
     public int getX() {
-        return x;
+        return coordinateX;
     }
 
     public int getY() {
-        return y;
+        return coordinateY;
     }
     
 }

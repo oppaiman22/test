@@ -19,7 +19,6 @@ public class Resource {
     
     public Resource() {
         letters = new Image[2];
-        System.out.println("lalalala");
         letters[0] = loadImage("/blueX.png");
         System.out.println("x loaded");
         letters[1] = loadImage("/resources/blueCircle.png");

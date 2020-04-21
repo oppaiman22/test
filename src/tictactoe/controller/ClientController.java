@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tictactoe.model.Client;
+//import tictactoe.model.Client;
 import tictactoe.model.ClientPlayPacket;
 import tictactoe.model.Connection;
 import tictactoe.model.GameEndPacket;
@@ -25,12 +25,12 @@ public class ClientController extends GameController {
     private Connection connection;
 
     public ClientController() {
-        super(2);
+        super(2);//assign wich is player
         try {
             socket = new Socket("localhost", PORT);
             connection = new Connection(this, socket);
         } catch (IOException ex) {
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
