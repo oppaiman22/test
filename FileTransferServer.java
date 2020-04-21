@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javanetworking.tcpbasic;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,29 +7,24 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class FileTransferServer {
-
     public static void main(String[] args) throws Exception {
-        //Initialize Sockets
-        ServerSocket ssock = new ServerSocket(5000);
-        Socket socket = ssock.accept();
-
-        //The InetAddress specification
-        InetAddress IA = InetAddress.getByName("localhost");
+        //InitinternetAddresslize Sockets
+        ServerSocket serverSocket = new ServerSocket(5000);
+        Socket socket = serverSocket.accept();
 
         //Specify the file
-        File file = new File("/Users/fahrul/Desktop/abc.png");
-        FileInputStream fis = new FileInputStream(file);
-        BufferedInputStream bis = new BufferedInputStream(fis);
+        File fileContainer = new File("tes1.txt");
+        FileInputStream fileInputStream = new FileInputStream(fileContainer);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
 
         //Get socket's output stream
-        OutputStream os = socket.getOutputStream();
+        OutputStream outputStream = socket.getOutputStream();
 
         //Read File Contents into contents array 
         byte[] contents;
-        long fileLength = file.length();
+        long fileLength = fileContainer.length();
         long current = 0;
 
-        long start = System.nanoTime();
         while (current != fileLength) {
             int size = 10000;
             if (fileLength - current >= size) {
@@ -46,15 +34,16 @@ public class FileTransferServer {
                 current = fileLength;
             }
             contents = new byte[size];
-            bis.read(contents, 0, size);
-            os.write(contents);
+            bufferedInputStream.read(contents, 0, size);
+            outputStream.write(contents);
             System.out.print("Sending file ... " + (current * 100) / fileLength + "% complete!");
         }
 
-        os.flush();
+        outputStream.flush();
         //File transfer done. Close the socket connection!
+        bufferedInputStream.close();
+        serverSocket.close();
         socket.close();
-        ssock.close();
         System.out.println("File sent succesfully!");
     }
 }
