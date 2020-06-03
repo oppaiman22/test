@@ -32,7 +32,7 @@ public class GamePanel extends JPanel {
                 x <= gameProperty.getFIELD_WIDTH() * 2; 
                 x += gameProperty.getFIELD_WIDTH()) 
         {
-            graphics2D.drawLine(x, 0, x, gameProperty.getFIELD_HEIGHT());
+            graphics2D.drawLine(x, 0, x, gameProperty.getHEIGHT());
             graphics2D.drawLine(0, x, gameProperty.getWIDTH(), x);
         }
         

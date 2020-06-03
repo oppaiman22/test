@@ -2,6 +2,7 @@ package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.Socket;
+import tictactoe.model.ClientPlayPacket;
 import tictactoe.model.Connection;
 import tictactoe.model.GameEndPacket;
 import tictactoe.model.UpdatePacket;
@@ -13,8 +14,16 @@ public class ClientController extends GameController {
             socket = new Socket("localhost", gameProperty.getPORT());
             connection = new Connection(this, socket);
         } catch (IOException ex) {
+            System.out.println("tictactoe.controller.ClientController.<init>()");
         }
     }
+    
+    @Override
+    public void inputReceived(int x, int y) {
+        if(isMyTurn())
+            connection.sendPacket(new ClientPlayPacket(x, y));
+    }
+
 
     @Override
     public void packetReceived(Object object) {

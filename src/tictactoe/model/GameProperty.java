@@ -10,7 +10,6 @@ public class GameProperty {
     private int NOBODY = 0;
     private int PLAYER_ONE = 1;
     private int PLAYER_TWO = 2;
-    private int PLAYER_THREE = 3;
 
     public int getPORT() {
         return PORT;
@@ -51,7 +50,7 @@ public class GameProperty {
     public void setFIELD_HEIGHT(int FIELD_HEIGHT) {
         this.FIELD_HEIGHT = FIELD_HEIGHT;
     }
-
+    
     public int getNOBODY() {
         return NOBODY;
     }
