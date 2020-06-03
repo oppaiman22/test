@@ -11,10 +11,6 @@ import tictactoe.model.UpdatePacket;
 import tictactoe.view.GameFrame;
 import tictactoe.view.GamePanel;
 
-/**
- *
- * @author fajar
- */
 public abstract class GameController {
     protected GameProperty gameProperty;
     protected int[][] fields;

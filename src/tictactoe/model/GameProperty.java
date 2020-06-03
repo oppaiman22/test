@@ -1,24 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tictactoe.model;
 
-/**
- *
- * @author iqbal
- */
 public class GameProperty {
-//    public final int PORT = 5555;
-//    public final int WIDTH = 600;
-//    public final int HEIGHT = 600;
-//    public final int FIELD_WIDTH = WIDTH / 3;
-//    public final int FIELD_HEIGHT = HEIGHT / 3;
-//    public final int NOBODY = 0;
-//    public final int PLAYER_ONE = 1;
-//    public final int PLAYER_TWO = 2;
-//    public final int PLAYER_THREE = 3;
     
     private int PORT = 5555;
     private int WIDTH = 600;

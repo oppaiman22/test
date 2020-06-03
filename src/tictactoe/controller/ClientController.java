@@ -6,13 +6,9 @@ import tictactoe.model.Connection;
 import tictactoe.model.GameEndPacket;
 import tictactoe.model.UpdatePacket;
 
-/**
- *
- * @author fajar
- */
 public class ClientController extends GameController {
     public ClientController() {
-        super(2);//assign wich is player
+        super(2);
         try {
             socket = new Socket("localhost", gameProperty.getPORT());
             connection = new Connection(this, socket);

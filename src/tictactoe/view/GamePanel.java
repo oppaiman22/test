@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tictactoe.view;
 
 import java.awt.BasicStroke;
@@ -15,10 +10,6 @@ import tictactoe.controller.GameController;
 import tictactoe.model.GameProperty;
 import tictactoe.resources.Resource;
 
-/**
- *
- * @author fajar
- */
 public class GamePanel extends JPanel {
 
     private GameController gameController;
