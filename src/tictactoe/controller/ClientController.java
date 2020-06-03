@@ -14,7 +14,7 @@ public class ClientController extends GameController {
             socket = new Socket("localhost", gameProperty.getPORT());
             connection = new Connection(this, socket);
         } catch (IOException ex) {
-            System.out.println("tictactoe.controller.ClientController.<init>()");
+            
         }
     }
     
@@ -23,7 +23,6 @@ public class ClientController extends GameController {
         if(isMyTurn())
             connection.sendPacket(new ClientPlayPacket(x, y));
     }
-
 
     @Override
     public void packetReceived(Object object) {

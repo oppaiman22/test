@@ -2,7 +2,10 @@ package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import tictactoe.model.ClientPlayPacket;
 import tictactoe.model.Connection;
+import tictactoe.model.GameEndPacket;
+import tictactoe.model.UpdatePacket;
 import tictactoe.model.WinnerChekker;
 
 public class ServerController extends GameController{      

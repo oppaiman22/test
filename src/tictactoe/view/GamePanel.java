@@ -55,7 +55,8 @@ public class GamePanel extends JPanel {
         @Override
         public void mousePressed(MouseEvent e) {
             if(e.getButton() == MouseEvent.BUTTON1) {
-                gameController.inputReceived(e.getX(),e.getY());
+                gameController.inputReceived(e.getX() / gameProperty.getFIELD_WIDTH(),
+                                             e.getY()/ gameProperty.getFIELD_WIDTH());
             }
         }   
     }    

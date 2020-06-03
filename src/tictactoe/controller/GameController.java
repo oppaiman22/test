@@ -57,53 +57,5 @@ public abstract class GameController {
         }
     }  
     
-    public class GameEndPacket implements Serializable {
-
-        private int winner;
-
-        public GameEndPacket(int winner) {
-            this.winner = winner;
-        }
-
-        public int getWinner() {
-            return winner;
-        }
-    }
-    public class UpdatePacket implements Serializable {
     
-        private int[][] fields;
-        private int currentPlayer;
-
-        public UpdatePacket(int[][] fields, int currentPlayer) {
-            this.fields = fields;
-            this.currentPlayer = currentPlayer;
-        }
-
-        public int[][] getFields() {
-            return fields;
-        }
-
-        public int getCurrentPlayer() {
-            return currentPlayer;
-        }
-
-    }
-    public class ClientPlayPacket implements Serializable {
-        private int coordinateX;
-        private int coordinateY;
-
-        public ClientPlayPacket(int inputCoordinateX, int inputCoordinateY) {
-            this.coordinateX = inputCoordinateX;
-            this.coordinateY = inputCoordinateY;
-        }
-
-        public int getX() {
-            return coordinateX;
-        }
-
-        public int getY() {
-            return coordinateY;
-        }
-
-    }
 }
