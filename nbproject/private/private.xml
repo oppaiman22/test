@@ -4,17 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/controller/ServerController.java</file>
+            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/WinnerChekker.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/main/Main.java</file>
-            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/UpdatePacket.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/view/GameFrame.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/controller/GameController.java</file>
-            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/controller/ClientController.java</file>
-            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/ClientPlayPacket.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/GameProperty.java</file>
-            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/GameEndPacket.java</file>
+            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/controller/ClientController.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/model/Connection.java</file>
             <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/view/GamePanel.java</file>
-            <file>file:/home/iqbal/Desktop/kuliah/semester%204/pak%20fah/day9/tes/src/tictactoe/resources/Resource.java</file>
         </group>
     </open-files>
 </project-private>

@@ -57,6 +57,7 @@ public class GamePanel extends JPanel {
         for(int x = 0; x < 3; x++) {
             for(int y = 0; y < 3; y++) {
                 int field = gameController.getFields()[x][y];
+                
                 if(field != gameProperty.getNOBODY())
                     graphics2D.drawImage(letters[field - 1], 
                                          x * gameProperty.getFIELD_WIDTH(), 

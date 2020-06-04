@@ -20,8 +20,11 @@ public class ClientController extends GameController {
     
     @Override
     public void inputReceived(int x, int y) {
-        if(isMyTurn())
-            connection.sendPacket(new ClientPlayPacket(x, y));
+        if(isMyTurn()){
+           connection.sendPacket(new ClientPlayPacket(x, y));
+           fields[x][y]=gameProperty.getPLAYER_TWO();
+           gamePanel.repaint();
+        }
     }
 
     @Override
