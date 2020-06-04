@@ -59,10 +59,8 @@ public class Connection implements Runnable {
             try {
                 Object object = inputStream.readObject();
                 gameController.packetReceived(object);
-            } catch (IOException ex) {
-                Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                System.out.println("tictactoe.model.Connection.run()");
             }
         }
     }

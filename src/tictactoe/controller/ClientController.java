@@ -11,10 +11,10 @@ public class ClientController extends GameController {
     public ClientController() {
         super(2);
         try {
-            socket = new Socket("localhost", gameProperty.getPORT());
+            socket = new Socket("localhost", getPort());
             connection = new Connection(this, socket);
         } catch (IOException ex) {
-            
+            System.out.println("tictactoe.controller.ClientController.<init>()");
         }
     }
     
@@ -22,7 +22,7 @@ public class ClientController extends GameController {
     public void inputReceived(int x, int y) {
         if(isMyTurn()){
            connection.sendPacket(new ClientPlayPacket(x, y));
-           fields[x][y]=gameProperty.getPLAYER_TWO();
+           fields[x][y]= getPLAYER_TWO();
            gamePanel.repaint();
         }
     }

@@ -15,12 +15,35 @@ import tictactoe.model.GameProperty;
 
 public class GamePanel extends JPanel {
 
-    private GameController gameController;
-    private GameProperty gameProperty;
+    private final GameController gameController;
     private static Image[] letters;
     
+    private int getFIELD_WIDTH(){
+        int value = new GameProperty().getFIELD_WIDTH();
+        return value;
+    }
+    
+    private int getFIELD_HEIGHT(){
+        int value = new GameProperty().getFIELD_HEIGHT();
+        return value;
+    }
+    
+    private int getBoardtHeight(){
+        int value = new GameProperty().getHEIGHT();
+        return value;
+    }
+    
+    private int getBoardwidth(){
+        int value = new GameProperty().getWIDTH();
+        return value;
+    }
+    
+    private int getNOBODY(){
+        int value = new GameProperty().getNOBODY();
+        return value;
+    }
+    
     public GamePanel(GameController gameController) {
-        gameProperty = new GameProperty();
         this.gameController = gameController;
         addMouseListener(new Input());
         letters = new Image[2];
@@ -45,12 +68,12 @@ public class GamePanel extends JPanel {
         BasicStroke basicStroke = new BasicStroke(10);
         graphics2D.setStroke(basicStroke);
         
-        for(int x = gameProperty.getFIELD_WIDTH(); 
-                x <= gameProperty.getFIELD_WIDTH() * 2; 
-                x += gameProperty.getFIELD_WIDTH()) 
+        for(int x = getFIELD_WIDTH(); 
+                x <= getFIELD_WIDTH() * 2; 
+                x += getFIELD_WIDTH()) 
         {
-            graphics2D.drawLine(x, 0, x, gameProperty.getHEIGHT());
-            graphics2D.drawLine(0, x, gameProperty.getWIDTH(), x);
+            graphics2D.drawLine(x, 0, x, getBoardtHeight());
+            graphics2D.drawLine(0, x, getBoardwidth(), x);
         }
         
         
@@ -58,13 +81,12 @@ public class GamePanel extends JPanel {
             for(int y = 0; y < 3; y++) {
                 int field = gameController.getFields()[x][y];
                 
-                if(field != gameProperty.getNOBODY())
+                if(field != getNOBODY()){
                     graphics2D.drawImage(letters[field - 1], 
-                                         x * gameProperty.getFIELD_WIDTH(), 
-                                         y * gameProperty.getFIELD_HEIGHT(), 
-                                         gameProperty.getFIELD_WIDTH(), 
-                                         gameProperty.getFIELD_HEIGHT(),
+                                         x * getFIELD_WIDTH(),y * getFIELD_HEIGHT(), 
+                                         getFIELD_WIDTH(),getFIELD_HEIGHT(),
                                          null);
+                }
             }
         }
     }
@@ -73,8 +95,8 @@ public class GamePanel extends JPanel {
         @Override
         public void mousePressed(MouseEvent e) {
             if(e.getButton() == MouseEvent.BUTTON1) {
-                gameController.inputReceived(e.getX() / gameProperty.getFIELD_WIDTH(),
-                                             e.getY()/ gameProperty.getFIELD_WIDTH());
+                gameController.inputReceived(e.getX() / getFIELD_WIDTH(),
+                                             e.getY()/ getFIELD_WIDTH());
             }
         }   
     }    

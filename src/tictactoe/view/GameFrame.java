@@ -8,9 +8,9 @@ import tictactoe.controller.GameController;
 
 public class GameFrame extends JFrame {
     
-    private int width;
-    private int height;
-    private GameController gameController;
+    private final int width;
+    private final int height;
+    private final GameController gameController;
     
     public GameFrame(GameController gameController, int width, int height) {
         this.gameController = gameController;
@@ -19,7 +19,7 @@ public class GameFrame extends JFrame {
         initComponent();
     }
     
-    public void initComponent() {
+    private void initComponent() {
         setTitle("Tic Tac Toe");
         setResizable(false);
         Dimension preferredSize = new Dimension(width, height);
@@ -31,7 +31,6 @@ public class GameFrame extends JFrame {
     }
     
     class Listener extends WindowAdapter {
-
         @Override
         public void windowClosing(WindowEvent e) {
             gameController.close();

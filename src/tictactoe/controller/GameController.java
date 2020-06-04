@@ -1,7 +1,6 @@
 package tictactoe.controller;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 import tictactoe.model.Connection;
@@ -10,7 +9,6 @@ import tictactoe.view.GameFrame;
 import tictactoe.view.GamePanel;
 
 public abstract class GameController {
-    protected GameProperty gameProperty;
     protected int[][] fields;
     protected int currentPlayer;
     protected int thisPlayer;
@@ -21,15 +19,44 @@ public abstract class GameController {
     public abstract void packetReceived(Object object);
     public abstract void inputReceived(int x, int y);
 
-    public GameController(int thisPlayer) {
-        gameProperty = new GameProperty();
+    public GameController(int thisPlayer) { 
         this.thisPlayer = thisPlayer;
-        gamePanel = new GamePanel(this);
-        GameFrame gameFrame = new GameFrame(this, gameProperty.getWIDTH(), gameProperty.getHEIGHT());
         fields = new int[3][3];
+        gamePanel = new GamePanel(this);
+        currentPlayer = getPLAYER_ONE();
+        GameFrame gameFrame = new GameFrame(this, getWIDTH(), getHEIGHT());
         gameFrame.add(gamePanel);
-        gameFrame.setVisible(true);
-        currentPlayer = gameProperty.getPLAYER_ONE();
+        gameFrame.setVisible(true);  
+    }
+    
+    protected int getPLAYER_ONE(){
+        int value = new GameProperty().getPLAYER_ONE();
+        return value;
+    }
+    
+    protected int getPLAYER_TWO(){
+        int value = new GameProperty().getPLAYER_TWO();
+        return value;
+    }
+    
+    private int getWIDTH(){
+        int value = new GameProperty().getHEIGHT();
+        return value;
+    }
+    
+    private int getHEIGHT(){
+        int value = new GameProperty().getWIDTH();
+        return value;
+    }
+    
+    protected int getNOBODY(){
+        int value = new GameProperty().getNOBODY();
+        return value;
+    }
+    
+    protected int getPort(){
+        int value = new GameProperty().getPORT();
+        return value;
     }
     
     public void close(){
@@ -37,7 +64,7 @@ public abstract class GameController {
         try {
             socket.close();
         } catch (IOException ex) {
-            
+            System.out.println("tictactoe.controller.GameController.close()");
         }
     }   
     
@@ -50,12 +77,11 @@ public abstract class GameController {
     }
     
     protected void showWinner(int winner) {
-        if(winner == gameProperty.getNOBODY()) {
+        if(winner == getNOBODY()) {
             JOptionPane.showMessageDialog(null, "TIE!");
         }else {
             JOptionPane.showMessageDialog(null, "The player " + winner + " has won the game!");
         }
     }  
-    
-    
+        
 }

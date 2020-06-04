@@ -71,9 +71,10 @@ public class WinnerChekker {
             }
         }
 
-        if(playerCount == 3)
+        if(playerCount == 3){
             return true;
-
+        }
+        
         return false;
     }
 }

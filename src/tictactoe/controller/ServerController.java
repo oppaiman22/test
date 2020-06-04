@@ -12,7 +12,7 @@ public class ServerController extends GameController{
     public ServerController() {
         super(1);
         try {
-            ServerSocket serverSocket = new ServerSocket(gameProperty.getPORT());
+            ServerSocket serverSocket = new ServerSocket(getPort());
             socket = serverSocket.accept();
             connection = new Connection(this, socket);
         } catch (IOException ex) {
@@ -22,15 +22,15 @@ public class ServerController extends GameController{
     }
     
     private void updateField(int x, int y) {
-        if(fields[x][y] == gameProperty.getNOBODY()) {
+        if(fields[x][y] == getNOBODY()) {
             
             fields[x][y] = currentPlayer;
        
-            if(currentPlayer == gameProperty.getPLAYER_ONE()) {
-                currentPlayer = gameProperty.getPLAYER_TWO();
+            if(currentPlayer == getPLAYER_ONE()) {
+                currentPlayer = getPLAYER_TWO();
                 connection.sendPacket(new UpdatePacket(fields, currentPlayer));
             } else  {
-                currentPlayer = gameProperty.getPLAYER_ONE();
+                currentPlayer = getPLAYER_ONE();
                 connection.sendPacket(new ClientPlayPacket(x, y));
             }
              
@@ -38,7 +38,7 @@ public class ServerController extends GameController{
             int winner = checkWin();
             int countField = countEmptyField();
             
-            if(winner != gameProperty.getNOBODY() || countField == 9) {
+            if(winner != getNOBODY() || countField == 9) {
                 endGame(winner);
             }
         }
@@ -55,7 +55,7 @@ public class ServerController extends GameController{
         int fieldCount = 0;
         for(int a = 0; a < 3; a++) {
             for(int b = 0; b < 3; b++) {
-                if(fields[a][b] == gameProperty.getNOBODY()) {
+                if(fields[a][b] == getNOBODY()) {
                     fieldCount++;
                 }
             }
